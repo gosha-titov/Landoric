@@ -1,3 +1,6 @@
+
+<img width="1344" height="768" alt="landoric_logo" src="https://github.com/user-attachments/assets/31b4ef52-ce6a-40b6-9f07-a3ba0e7314d6" />
+
 # Countries
 
 A lightweight Swift library providing country metadata — ISO codes, population, area, continent, localized names, and flag emojis.
