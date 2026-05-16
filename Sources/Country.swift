@@ -151,17 +151,17 @@ extension Country {
     public init?(isoCode: String) {
         let isoCode = isoCode.uppercased()
         guard NSLocale.isoCountryCodes.contains(isoCode) else { return nil }
-        if let country = Country.allEuropean.first(where: { $0.isoCode == isoCode }) {
+        if let country = Country.allEuropean.first(by: isoCode) {
             self = country
-        } else if let country = Country.allAsian.first(where: { $0.isoCode == isoCode }) {
+        } else if let country = Country.allAsian.first(by: isoCode) {
             self = country
-        } else if let country = Country.allNorthAmerican.first(where: { $0.isoCode == isoCode }) {
+        } else if let country = Country.allNorthAmerican.first(by: isoCode) {
             self = country
-        } else if let country = Country.allSouthAmerican.first(where: { $0.isoCode == isoCode }) {
+        } else if let country = Country.allSouthAmerican.first(by: isoCode) {
             self = country
-        } else if let country = Country.allAfrican.first(where: { $0.isoCode == isoCode }) {
+        } else if let country = Country.allAfrican.first(by: isoCode) {
             self = country
-        } else if let country = Country.allAustralian.first(where: { $0.isoCode == isoCode }) {
+        } else if let country = Country.allAustralian.first(by: isoCode) {
             self = country
         } else {
             return nil
@@ -233,3 +233,13 @@ private extension Character {
     
 }
 
+
+private extension Array where Element == Country {
+    
+    /// Returns the first country with the given ISO country code.
+    @inline(__always)
+    func first(by isoCode: String) -> Element? {
+        return first { $0.isoCode  == isoCode }
+    }
+    
+}
