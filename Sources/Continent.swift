@@ -1,6 +1,6 @@
 /// A continents of the world.
 /// - Important: Antarctica is excluded because it has no sovereign countries.
-public enum Continent: String, CaseIterable, Sendable {
+public enum Continent: String, CaseIterable, Codable, Sendable {
     case Asia
     case Africa
     case Europe
